@@ -1530,7 +1530,7 @@ SLresult android_audioPlayer_realize(CAudioPlayer *pAudioPlayer, SLboolean async
                 audioTrack_callBack_pullFromBuffQueue,               // callback
                 (void *) pAudioPlayer,                               // user
                 0,     // FIXME find appropriate frame count         // notificationFrame
-                pAudioPlayer->mSessionId);
+                pAudioPlayer->mSessionId, android::AudioTrack::TRANSFER_DEFAULT, NULL, -1, -1, NULL);
         android::status_t status = pAudioPlayer->mAudioTrack->initCheck();
         if (status != android::NO_ERROR) {
             SL_LOGE("AudioTrack::initCheck status %u", status);
